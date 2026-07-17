@@ -27,7 +27,7 @@ class Main {
 
 }
 
-class Timeline {
+class Timeline { //represents all the events in chronological order e.g [Event1, Event2]
   List<Event> timeline;
 
   Timeline() {
