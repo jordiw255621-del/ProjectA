@@ -1,5 +1,5 @@
-1. The program will have an Admin login and a artist login, requiring a username and password
-2. Artist login will allow arists to book the venue at an available date
+1. The program will have an Admin login and an artist login, requiring a username and password
+2. Artist login will allow artists to book the venue at an available date
 3. Artists can add or remove equipment to hire for the booking, showing the current cost
 4. Fans can purchase or reserve concert seating tickets
 5. Staff can view a seating chart showing which seats are available/unavailable for concerts
