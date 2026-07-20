@@ -24,3 +24,8 @@ class Main {
   }
 
 }
+
+class Menu {
+
+  // menu a menu b methods etc.
+}
