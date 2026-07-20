@@ -1,0 +1,3 @@
+class Equipment{}
+
+enum EquipmentType{}
