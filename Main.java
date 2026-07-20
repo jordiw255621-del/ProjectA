@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class SeatingView {
   int[][] seats;
 
@@ -22,4 +25,28 @@ class Main {
     seating.printSeating();
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+
+class Timeline { //represents all the events in chronological order e.g [Event1, Event2]
+  List<Event> timeline;
+
+  Timeline() {
+    this.timeline = new ArrayList<>();
+  }
+
+}
+
+class Event {
+  String name;
+  Artist artist;
+  int date;
+
+}
+
+class Artist {
+  String name;
+}
+>>>>>>> 7b52c30de717a22a05cfbf8ac6aa6ba85fa87914
