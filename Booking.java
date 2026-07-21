@@ -1,12 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Booking {    
+class Booking {
     private List<Equipment> hiredEquipment;
+    private Artist artist;
 
     Booking() {
         this.hiredEquipment = new ArrayList<>();
+    }
 
+    Booking(Artist artist) {
+        this.hiredEquipment = new ArrayList<>();
+        this.artist = artist;
     }
 
     public List<Equipment> getHiredEquipment() {
