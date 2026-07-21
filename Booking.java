@@ -1,17 +1,26 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Booking {
-    private List<Equipment> hiredEquipment;
+public class Booking {
+    private int date; // could be int (1 - 31 for each day of month) or create custome Date obj
     private Artist artist;
+    private List<Equipment> hiredEquipment;
+    private Ticket[] seats;
 
-    Booking() {
+    public Booking() {
         this.hiredEquipment = new ArrayList<>();
+        this.artist = new Artist();
+        this.seats = new Ticket[Main.COLUMN_COUNT * Main.ROW_COUNT];
     }
 
-    Booking(Artist artist) {
+    public Booking(Artist artist) {
         this.hiredEquipment = new ArrayList<>();
         this.artist = artist;
+        this.seats = new Ticket[Main.COLUMN_COUNT * Main.ROW_COUNT];
+    }
+
+    public Artist getArtist() {
+        return this.artist;
     }
 
     public List<Equipment> getHiredEquipment() {
@@ -34,10 +43,49 @@ class Booking {
             System.out.println(equipmentName + " not in hired equipment");
         }
     }
+
+    public boolean isTicketSold(int seatNum) { //seatnum = 1 - 100
+        if (seatNum >= this.seats.length || seatNum < 1) {
+            return false;
+        }
+        return this.seats[seatNum - 1].getIsSold();
+    }
+
+    public void printSeatView() {
+
+    }
 }
 
 class Ticket {
+    private final int seatNumber;
+    private double price;
+    private boolean isSold;
+    private TicketType ticketType;
 
+    public Ticket(int seatNumber, TicketType ticketType) {
+        this.seatNumber = seatNumber;
+        this.ticketType = ticketType;
+        this.price = 0;
+        this.isSold = false;
+    }
+
+    public boolean getIsSold() {
+        return this.isSold;
+    }
+
+    public void printDetails() {
+    }
+
+    public String toString() {
+        if (isSold) {
+            return "X";
+        }
+        return "O";
+    }
+}
+
+enum TicketType {
+    GENERAL, VIP, IDK;
 }
 
 interface costable {
