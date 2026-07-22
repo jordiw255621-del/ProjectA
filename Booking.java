@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Booking { //test
+public class Booking implements costable{ 
     private int date; // could be int (1 - 31 for each day of month) or create custome Date obj
     private Artist artist;
     private List<Equipment> hiredEquipment;
     private Ticket[] seats;
+    static final double BASE_HIRE_PRICE = 100.0;
 
     public Booking() {
         this.hiredEquipment = new ArrayList<>();
@@ -53,6 +54,14 @@ public class Booking { //test
 
     public void printSeatView() {
 
+    }
+
+    public double getPrice() {
+        double price = BASE_HIRE_PRICE;
+        for (Equipment e : this.hiredEquipment) {
+            price += e.getPrice();
+        }
+        return price;
     }
 }
 
