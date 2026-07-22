@@ -120,7 +120,6 @@ enum TicketType {
     public double getPrice() {
         return this.price;
     }
-
 }
 
 interface costable {
