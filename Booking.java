@@ -68,6 +68,10 @@ public class Booking implements costable{
         }
         return price;
     }
+
+    public void sellTicket(int ticketNumber) {
+        this.seats[ticketNumber - 1].setIsSold(true);
+    }
 }
 
 class Ticket {
@@ -85,6 +89,10 @@ class Ticket {
 
     public boolean getIsSold() {
         return this.isSold;
+    }
+
+    public void setIsSold(boolean bool) {
+        this.isSold = bool;
     }
 
     public void printDetails() {
