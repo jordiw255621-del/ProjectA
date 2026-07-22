@@ -52,6 +52,11 @@ public class Booking implements costable{
         return this.seats[seatNum - 1].getIsSold();
     }
 
+    public void printHiredEquipment() {
+        for (Equipment e : this.hiredEquipment) {
+            System.out.println(e); //this will work once Equipment.toString() exists
+        }
+    }
     public void printSeatView() {
 
     }
