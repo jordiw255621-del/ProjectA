@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Booking implements costable{ 
+public class Booking implements costable {
     private int date; // could be int (1 - 31 for each day of month) or create custome Date obj
     private Artist artist;
     private List<Equipment> hiredEquipment;
-    private List<Song> songProgram; 
+    private List<Song> songProgram;
     private Ticket[] seats;
     static final double BASE_HIRE_PRICE = 100.0;
 
@@ -46,6 +47,47 @@ public class Booking implements costable{
         }
     }
 
+    public void addSong(Song song) {
+        this.songProgram.add(song);
+    }
+
+    // Removes ALL matches of song in songProgram List
+    public void removeSong(Song song) {
+        if (song == null) {
+            return;
+        }
+        for (int i = this.songProgram.size() - 1; i >= 0; i--) {
+            if (this.songProgram.get(i).getName().equals(song.getName())) {
+                this.songProgram.remove(i);
+            }
+        }
+    }
+
+    // Removes ALL matches of song in songProgram List
+    public void removeSong(String songName) {
+        for (int i = this.songProgram.size() - 1; i >= 0; i--) {
+            if (this.songProgram.get(i).getName().equals(songName)) {
+                this.songProgram.remove(i);
+            }
+        }
+    }
+
+    // Removes song by number (1 - songProgram.size())
+    public void removeSong(int songNum) {
+        if (songNum > this.songProgram.size()
+                || songNum < 1) {
+            System.out.println("Invalid song number");
+            return;
+        }
+        String removedSongName = this.songProgram.get(songNum + 1).getName();
+        this.songProgram.remove(songNum + 1);
+        System.out.println("removed " + removedSongName);
+    }
+    
+    public void modifySongOrder(Song[] newSongOrder) {
+        this.songProgram = new ArrayList<Song>(Arrays.asList(newSongOrder));
+    }
+
     public boolean isTicketSold(int seatNum) { // seatnum = 1 - 100
         if (seatNum >= this.seats.length || seatNum < 1) {
             return false;
@@ -55,9 +97,10 @@ public class Booking implements costable{
 
     public void printHiredEquipment() {
         for (Equipment e : this.hiredEquipment) {
-            System.out.println(e); //this will work once Equipment.toString() exists
+            System.out.println(e); // this will work once Equipment.toString() exists
         }
     }
+
     public void printSeatView() {
 
     }
