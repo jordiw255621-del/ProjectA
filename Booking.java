@@ -44,7 +44,7 @@ public class Booking {
         }
     }
 
-    public boolean isTicketSold(int seatNum) { //seatnum = 1 - 100
+    public boolean isTicketSold(int seatNum) { // seatnum = 1 - 100
         if (seatNum >= this.seats.length || seatNum < 1) {
             return false;
         }
