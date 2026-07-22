@@ -5,6 +5,7 @@ public class Booking implements costable{
     private int date; // could be int (1 - 31 for each day of month) or create custome Date obj
     private Artist artist;
     private List<Equipment> hiredEquipment;
+    private List<Song> songProgram; 
     private Ticket[] seats;
     static final double BASE_HIRE_PRICE = 100.0;
 
@@ -12,6 +13,7 @@ public class Booking implements costable{
         this.hiredEquipment = new ArrayList<>();
         this.artist = new Artist();
         this.seats = new Ticket[Main.COLUMN_COUNT * Main.ROW_COUNT];
+        this.songProgram = new ArrayList<>();
     }
 
     public Booking(Artist artist) {
@@ -37,8 +39,7 @@ public class Booking implements costable{
             if (this.hiredEquipment.get(i).getName().equals(equipmentName)) {
                 this.hiredEquipment.remove(i);
                 System.out.println("Removed " + equipmentName);
-                // Would print out updated cost, by either subtracting from a "total cost"
-                // or calling "getPrice()" function
+                System.out.println("New Hire Price: " + this.getPrice());
                 return;
             }
             System.out.println(equipmentName + " not in hired equipment");
@@ -72,6 +73,7 @@ public class Booking implements costable{
     public void sellTicket(int ticketNumber) {
         this.seats[ticketNumber - 1].setIsSold(true);
     }
+
 }
 
 class Ticket {
