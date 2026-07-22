@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Booking {
+public class Booking { //test
     private int date; // could be int (1 - 31 for each day of month) or create custome Date obj
     private Artist artist;
     private List<Equipment> hiredEquipment;
