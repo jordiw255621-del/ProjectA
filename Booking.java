@@ -23,6 +23,10 @@ public class Booking implements costable {
         this.seats = new Ticket[Main.COLUMN_COUNT * Main.ROW_COUNT];
     }
 
+    public int getDate() {
+        return this.date;
+    }
+
     public Artist getArtist() {
         return this.artist;
     }
@@ -83,7 +87,7 @@ public class Booking implements costable {
         this.songProgram.remove(songNum + 1);
         System.out.println("removed " + removedSongName);
     }
-    
+
     public void modifySongOrder(Song[] newSongOrder) {
         this.songProgram = new ArrayList<Song>(Arrays.asList(newSongOrder));
     }
@@ -102,6 +106,7 @@ public class Booking implements costable {
     }
 
     public void printSeatView() {
+        // for (int )
 
     }
 
