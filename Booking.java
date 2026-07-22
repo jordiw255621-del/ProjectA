@@ -109,7 +109,18 @@ class Ticket {
 }
 
 enum TicketType {
-    GENERAL, VIP, IDK;
+    GENERAL(100.0), VIP(150.0), VIPPLUS(200.0);
+
+    private double price;
+
+    TicketType(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+
 }
 
 interface costable {
