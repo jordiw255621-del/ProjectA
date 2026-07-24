@@ -1,4 +1,4 @@
-class Equipment implements costable {
+class Equipment implements Costable {
     private String name;
     private EquipmentType equipmentType;
     private double hireCost; // cost per gear

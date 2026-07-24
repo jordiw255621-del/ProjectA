@@ -8,7 +8,8 @@ public class Song {
    }
 
    Song(String name, String artistName) {
-
+      this.name = name;
+      this.artist.setName(artistName);
    }
 
    public String getName() {
@@ -17,6 +18,10 @@ public class Song {
 
    public Artist getArtist() {
       return this.artist;
+   }
+
+   public String toString() {
+      return this.artist.getName() + " - " + this.name;
    }
 
 }

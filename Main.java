@@ -1,27 +1,26 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Main {
-  public static void main(String[] args) {
-    Main main = new Main();
-  }
 
-  // represents how many rows and columns for the seats
+  // represents how many rows and columns for the seats for the venue
   static final int ROW_COUNT = 10;
   static final int COLUMN_COUNT = 10;
   static final int NUM_OF_DAYS = 31;
   private List<Booking> bookings;
-  private HashMap<Integer, Booking> dateToBooking;
+  private Map<Integer, Booking> dateToBooking;
 
   Main() {
     // initialise dateToBooking with 31 empty slots
+    this.dateToBooking = new HashMap<>();
     for (int i = 1; i < NUM_OF_DAYS + 1; i++) {
       this.dateToBooking.put(i, null);
     }
   }
 
-  // Making new Booking or modifying existing booking
-  public void makeBooking(Booking booking) { 
+  // used for Making new Booking or modifying existing booking
+  public void makeBooking(Booking booking) {
     if (booking == null) {
       System.out.println("Invalid booking");
     } else if (!this.dateToBooking.containsKey(booking.getDate())) {
