@@ -77,8 +77,14 @@ class Main {
     }
   }
 
-}
+  public void MenuA(){
 
-class Menu {
+  }
+
+  public void MenuB(){
+
+  }
+
+
 
 }
