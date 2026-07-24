@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Booking implements costable {
+public class Booking implements Costable {
     private int date; // could be int (1 - 31 for each day of month) or create custome Date obj
     private Artist artist;
     private List<Equipment> hiredEquipment;
@@ -17,10 +17,12 @@ public class Booking implements costable {
         this.songProgram = new ArrayList<>();
     }
 
-    public Booking(Artist artist) {
+    public Booking(Artist artist, int date) {
+        this.date = date;
         this.hiredEquipment = new ArrayList<>();
         this.artist = artist;
         this.seats = new Ticket[Main.COLUMN_COUNT * Main.ROW_COUNT];
+        this.songProgram = new ArrayList<>();
     }
 
     public int getDate() {
@@ -90,6 +92,23 @@ public class Booking implements costable {
 
     public void modifySongOrder(Song[] newSongOrder) {
         this.songProgram = new ArrayList<Song>(Arrays.asList(newSongOrder));
+    }
+
+    // takes a song by number, place it in new position and shift other elements
+    // NOTE: DOESNT CHECK VALIDITY OF INDEX (IF NOT HANDLED DURING INPUT, WILL THROW
+    // ARRAYOUTOFBOUNDS EXCEPTION)
+    public void rearrangeSongOrder(int songNum, int newSongNum) {
+        Song songToBeRearranged = this.songProgram.get(songNum - 1);
+        this.songProgram.remove(songNum - 1);
+        this.songProgram.add(newSongNum - 1, songToBeRearranged);
+        System.out.println(songToBeRearranged.getName() + " moved from position " + songNum + " -> " + newSongNum);
+    }
+
+    public void printSongProgram() {
+        System.out.println("-Program-");
+        for (int i = 0; i < this.songProgram.size(); i++) {
+            System.out.println((i + 1) + ". " + this.songProgram.get(i));
+        }
     }
 
     public boolean isTicketSold(int seatNum) { // seatnum = 1 - 100
@@ -168,9 +187,4 @@ enum TicketType {
     public double getPrice() {
         return this.price;
     }
-}
-
-interface costable {
-
-    public double getPrice();
 }
