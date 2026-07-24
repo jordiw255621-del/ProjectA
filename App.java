@@ -12,6 +12,7 @@ public class App {
 
         booking1.rearrangeSongOrder(1, 2);
         booking1.printSongProgram();
-
+        main.makeBooking(booking1);
+        main.displayBookings();
     }
 }
